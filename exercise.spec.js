@@ -9,9 +9,16 @@ describe("returnSortedColors", () => {
     expect(randomSortedArray[0].favoriteColor).to.not.equal(undefined);
   });
   it("should return an array of user objects where favoriteColor is sorted properly", () => {
+    users.push({
+      name: "Jimbo",
+      email: "jimbo2@test.com",
+      favoriteColor: "green",
+    });
     let hasNonGreen = false;
+    let hasJimbo = false;
     returnSortedColors(users, "green").forEach(item => {
       if (item !== undefined) {
+        if (item.name === "Jimbo") hasJimbo = true;
         if (item.favoriteColor !== "green") hasNonGreen = true;
       }
     });
@@ -30,5 +37,41 @@ describe("returnSortedColors", () => {
       }
     });
     expect(hasNonRed).to.equal(false);
+  });
+});
+
+describe("checkForFakes", () => {
+  it("Should exist", () => {
+    expect(checkForFakes()).to.not.equal(undefined);
+  });
+  it("should return an array of user objects", () => {
+    const randomSortedArray = returnSortedColors(users, "green");
+    expect(randomSortedArray[0].name).to.not.equal(undefined);
+    expect(randomSortedArray[0].email).to.not.equal(undefined);
+    expect(randomSortedArray[0].favoriteColor).to.not.equal(undefined);
+  });
+  it("Should detect a fake email and add it to the returned array", () => {
+    const userData = [
+      {
+        name: "Norman",
+        email: "normalPerson@blank.com",
+        favoriteColor: "purple",
+      },
+      { name: "Fake", email: "fakeperson@blank.com", favoriteColor: "grey" },
+      {
+        name: "Fake2",
+        email: "totallynotafake@fake.com",
+        favoriteColor: "green",
+      },
+    ];
+    let hasPerson1 = false;
+    let hasPerson2 = false;
+    checkForFakes(userData).forEach(item => {
+      if (item !== undefined) {
+        if (item.name === "Fake") hasPerson1 = true;
+        if (item.name === "Fake2") hasPerson2 = true;
+      }
+    });
+    expect(hasPerson1 && hasPerson2).to.equal(true);
   });
 });
