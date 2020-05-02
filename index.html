@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="lib/mocha.css" />
+    <title>Pi Crafters Software Engineering Wk 5</title>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/chai.js"></script>
+    <script src="lib/mocha.js"></script>
+    <script>
+      const expect = chai.expect;
+    </script>
+    <script>
+      mocha.setup("bdd");
+    </script>
+    <script src="exercise.js"></script>
+    <script src="exercise.spec.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
