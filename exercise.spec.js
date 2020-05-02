@@ -1,6 +1,6 @@
 describe("returnSortedColors", () => {
   it("should exist", () => {
-    expect(returnSortedColors(users, "green")).to.not.equal(undefined);
+    expect(typeof returnSortedColors).to.equal("function");
   });
   it("should return an array of user objects", () => {
     const randomSortedArray = returnSortedColors(users, "green");
@@ -42,10 +42,10 @@ describe("returnSortedColors", () => {
 
 describe("checkForFakes", () => {
   it("Should exist", () => {
-    expect(checkForFakes()).to.not.equal(undefined);
+    expect(typeof checkForFakes).to.equal("function");
   });
   it("should return an array of user objects", () => {
-    const randomSortedArray = returnSortedColors(users, "green");
+    const randomSortedArray = checkForFakes(users);
     expect(randomSortedArray[0].name).to.not.equal(undefined);
     expect(randomSortedArray[0].email).to.not.equal(undefined);
     expect(randomSortedArray[0].favoriteColor).to.not.equal(undefined);
