@@ -51,7 +51,3 @@ const users = [
  * ]
  */
 
-const returnSortedColors = (usersArr, sortColor) =>
-  usersArr.map(({ favoriteColor, ...rest }) => {
-    if (favoriteColor === sortColor) return { favoriteColor, ...rest };
-  });
