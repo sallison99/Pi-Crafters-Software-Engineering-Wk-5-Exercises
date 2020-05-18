@@ -52,6 +52,11 @@ const users = [
  * ]
  */
 
+const returnSortedColors = (usersArr, sortColor) =>
+  usersArr.map(({ favoriteColor, ...restColor }) => {
+    if (favoriteColor === sortColor) return { favoriteColor, ...restColor };
+  });
+
 /**
  * #2:
  * Write a function called checkForFakes that takes in an array of users (we can call it usersArr)
@@ -75,4 +80,10 @@ const users = [
  *  },
  * ]
  */
+
+const checkForFakes= (usersArr) =>
+   usersArr.map(({ email, ...restEmail }) => {
+    if (email.includes("fake")) return { email, ...restEmail };
+  });
+
 
