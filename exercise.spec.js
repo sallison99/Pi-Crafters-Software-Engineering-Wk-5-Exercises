@@ -46,9 +46,13 @@ describe("checkForFakes", () => {
   });
   it("should return an array of user objects", () => {
     const randomSortedArray = checkForFakes(users);
-    expect(randomSortedArray[0].name).to.not.equal(undefined);
-    expect(randomSortedArray[0].email).to.not.equal(undefined);
-    expect(randomSortedArray[0].favoriteColor).to.not.equal(undefined);
+    randomSortedArray.forEach(item => {
+      if (item) {
+        expect(item.name).to.not.equal(undefined);
+        expect(item.email).to.not.equal(undefined);
+        expect(item.favoriteColor).to.not.equal(undefined);
+      }
+    });
   });
   it("Should detect a fake email and add it to the returned array", () => {
     const userData = [
